@@ -1,0 +1,167 @@
+package com.mobileapp;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+/**
+ *
+ * @author hp
+ */
+@WebServlet(name = "loginservlet", urlPatterns = {"/loginservlet"})
+public class loginservlet extends HttpServlet {
+
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet loginservlet</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet loginservlet at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
+    }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
+}
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+YourProject/
+ ├── Source Packages/
+ │    └── com.mobileapp/
+ │         ├── DBConnection.java
+ │         ├── LoginServlet.java
+ │         ├── RechargeServlet.java
+ ├── Web Pages/
+ │    ├── index.jsp
+ │    ├── dashboard.jsp
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://localhost:8080/YourApp/index.jsp
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+netstat -ano | findstr :8080
+taskkill /PID 15508 /F
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+C:\Users\hp\.gemini\antigravity\scratch\CloudCellApp
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+🛠️ Step-by-Step Setup Guide
+Follow these steps to deploy and run the application on your computer:
+
+1. Database Configuration
+Open your MySQL Command Line Client, MySQL Workbench, or any database tool.
+Execute the queries inside the 
+schema.sql
+ file.
+This creates a database called cloudcell_db.
+It creates all required tables: Customers, Packages, Reloads, Billing, BankDetails, and Admin.
+It populates dummy data (sample customers, default packages, transaction logs, and a SuperAdmin account).
+2. Opening the Project in NetBeans
+Download and extract 
+CloudCellApp.zip
+.
+Open NetBeans IDE.
+Click File -> Open Project.
+Browse to the extracted CloudCellApp folder (NetBeans will detect it as a Maven Web Project because it contains a pom.xml).
+NetBeans will automatically download the required dependencies (MySQL connector, Servlet APIs, JSTL, JSON helpers) specified in the POM file.
+3. Modifying Database Credentials
+In NetBeans, expand the project tree: Source Packages -> com.cloudcell.dao.
+Open 
+DatabaseConnection.java
+.
+Edit the static variables for credentials:
+java
+
+private static final String USER = "root";
+private static final String PASSWORD = "root"; // Replace with your MySQL password
+Save the file.
+4. Running the Web Application on Tomcat
+Right-click on the CloudCellApp project in NetBeans and select Run (or click the Green Play button).
+If prompted, select your installed Apache Tomcat server (Tomcat 9 or 10 supporting standard Javax Servlet specifications).
+NetBeans will package the application as a WAR file, deploy it to Tomcat, and launch your default browser at: http://localhost:8080/CloudCellApp/
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+🔑 Default Credentials for Testing
+Use these accounts to test the different user flows:
+
+Customer Accounts
+
+# John Silva
+
+Email/Username: john.silva@example.com
+Password: password123
+
+# Amaya Perera
+
+Email/Username: amaya.perera@example.com
+Password: password123
+
+Administrator Account
+
+# SuperAdmin
+
+Username: admin
+Password: admin123
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+http://localhost:8080/CloudCellApp/
+
+
+
+
+
